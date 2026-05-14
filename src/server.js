@@ -1,7 +1,13 @@
 import express from "express";
+import cors from "cors";
+
 import { users } from "./fakeData/fakeUsers.js";
 
 const app = express();
+
+app.use(cors());
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send(`<!doctype html>
@@ -39,6 +45,56 @@ app.get("/", (req, res) => {
 app.get("/users", (req, res) => {
   res.json(users);
 });
+
+app.get("/users/:id", (req, res) => {
+  const user = users.find((u) => String(u.ID) === String(req.params.id));
+  if (!user) {
+    return res.status(404).json({ error: "user not found" });
+  }
+  res.json(user);
+});
+
+app.post("/users", (req, res) => {
+  const { username, email, passwrod } = req.body || {};
+
+  if (!username || !email) {
+    return res.status(400).json("username and email are required");
+  }
+
+  const nextId = String(
+    (users.reduce((max, u) => Math.max(max, Number(u.ID)), 0) || 0) + 1,
+  );
+
+  const newUser = { ID: nextId, username, email, passwrod };
+
+  users.push(newUser);
+  return res.status(201).json(newUser);
+});
+
+app.put("/users/:id", (req, res) => {
+  const user = users.find((u) => u.id === req.params.id);
+
+  if (!user) {
+    return res.status(404).json({ error: "user not found" });
+  }
+  const { username, email, passwrod } = req.body;
+
+  if (!username || !email || !passwrod) {
+    return res
+      .status(400)
+      .json({ error: "username, email and passwrod not found" });
+  }
+
+  user.username = username;
+  user.email = email;
+  user.passwrod = passwrod;
+
+  res.status(200).json(user);
+});
+
+//app.delete("");
+
+//app.patch("");
 
 const port = 3002;
 
