@@ -1,0 +1,23 @@
+### Read all users
+GET http://localhost:3002/api/users
+
+
+### Create test a new user
+POST http://localhost:3002/api/users
+Content-Type: application/json
+
+{
+"username": "Susan",
+"email": "susan@example.com",
+"passwrod": "456789123"
+}
+
+### Update user
+PUT http://localhost:3002/api/users/1
+Content-Type: application/json
+
+{
+"username": "Emmika12",
+"email": "Emmika@gmail.com",
+"passwrod": "Em12345"
+}
