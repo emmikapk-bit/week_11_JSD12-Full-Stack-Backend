@@ -3,19 +3,22 @@ import { users } from "../../fakeData/fakeUsers.js";
 
 export const router = Router();
 
-router.get("/users", (req, res) => {
+// find all users
+router.get("/", (req, res) => {
   res.json(users);
 });
 
-router.get("/users/:id", (req, res) => {
-  const user = users.find((u) => String(u.ID) === String(req.params.id));
+// find user id
+router.get("/:id", (req, res) => {
+  const user = users.find((u) => String(u.id) === String(req.params.id));
   if (!user) {
     return res.status(404).json({ error: "user not found" });
   }
   res.json(user);
 });
 
-router.post("/users", (req, res) => {
+// Create new user
+router.post("/", (req, res) => {
   const { username, email, passwrod } = req.body || {};
 
   if (!username || !email) {
@@ -32,7 +35,8 @@ router.post("/users", (req, res) => {
   return res.status(201).json(newUser);
 });
 
-router.put("/users/:id", (req, res) => {
+//Update user
+router.put("/:id", (req, res) => {
   const user = users.find((u) => u.id === req.params.id);
 
   if (!user) {
@@ -53,14 +57,23 @@ router.put("/users/:id", (req, res) => {
   res.status(200).json(user);
 });
 
-/*router.delete("/users/:id", (req, res) => {
-    // 1. หา "ตำแหน่ง index" ของ User ที่มี id ตรงกับที่ส่งมา
-    // อย่าลืม u.id (ตัวเล็ก) ให้ตรงกับ Data นะคะเอม!
-    const user = users.find((u) => u.id === req.params.id);
+// delete user
+router.delete("/:id", (req, res) => {
+  // 1. หา "ตำแหน่ง index" ของ User ที่มี id ตรงกับที่ส่งมา
+  // อย่าลืม u.id (ตัวเล็ก) ให้ตรงกับ Data นะคะเอม!
+  const user = users.findIndex((u) => u.id === req.params.id);
+  // 2. ถ้าหาไม่เจอ (findIndex จะคืนค่า -1) ให้ส่ง 404 กลับไป
+  if (user === -1) {
+    return res.status(404).json({ error: "user not found" });
+  }
+  // 3. ถ้าเจอ ให้ทำการลบออกจาก Array ด้วย .splice(ตำแหน่งที่เริ่ม, จำนวนที่จะลบ)
+  const deleteUser = users.splice(user, 1);
 
-    if(user === -1){
-
-    
-});*/
+  // 4. ส่งสถานะ 200 (หรือ 204 No Content) พร้อมข้อมูลคนที่โดนลบกลับไปเพื่อยืนยัน
+  res.status(200).json({
+    message: "User deleted successfully",
+    deleteUser: deleteUser[0],
+  });
+});
 
 //router.patch("");

@@ -1,6 +1,11 @@
+
+### Users
+
 ### Read all users
 GET http://localhost:3002/api/users
 
+### Read user id
+GET http://localhost:3002/api/users/3
 
 ### Create test a new user
 POST http://localhost:3002/api/users
@@ -20,4 +25,87 @@ Content-Type: application/json
 "username": "Emmika12",
 "email": "Emmika@gmail.com",
 "passwrod": "Em12345"
+}
+
+### delete user
+DELETE http://localhost:3002/api/users/4
+Content-Type: application/json
+
+{
+"username": "Susan",
+"email": "susan@example.com",
+"passwrod": "456789123"
+}
+
+### Products
+
+### Read all Products
+GET http://localhost:3002/api/products
+
+### Read Product id
+GET http://localhost:3002/api/products/3
+
+### Create test a new Product
+POST http://localhost:3002/api/products
+Content-Type: application/json
+
+{
+"name": "donut Oreo",
+"price": "15",
+"Qty": 5
+}
+
+### Update Product
+PUT http://localhost:3002/api/products/1
+Content-Type: application/json
+
+{
+"name": "donut Chocolate",
+"price": "35",
+"Qty": 3
+}
+
+### delete Product
+DELETE http://localhost:3002/api/products/4
+Content-Type: application/json
+
+{
+"name": "donut oreo",
+"price": "15",
+"Qty": 5
+}
+
+### Notes
+
+### Read all Notes
+GET http://localhost:3002/api/notes
+
+### Read Note id
+GET http://localhost:3002/api/notes/1
+
+### Create test a new Note
+POST http://localhost:3002/api/notes
+Content-Type: application/json
+
+{
+"title": "Meeting morning 12/05/26",
+"content": "Lorem ipsum dsolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+}
+
+### Update Note
+PUT http://localhost:3002/api/notes/1
+Content-Type: application/json
+
+{
+"title": "not yes meeting",
+"content": "fine"
+}
+
+### delete Note
+DELETE  http://localhost:3002/api/notes/3
+Content-Type: application/json
+
+{
+"title": "Meeting 12/05/26 🌸",
+"content": "Lorem ipsum dsolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 }

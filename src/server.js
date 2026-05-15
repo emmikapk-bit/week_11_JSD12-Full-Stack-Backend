@@ -1,8 +1,10 @@
 import express from "express";
 import cors from "cors";
-
+//Users
 import { users } from "./fakeData/fakeUsers.js";
-import { router as apiRoutes } from "./routes/V1/users.routes.js";
+import { products } from "./fakeData/fakeProducts.js";
+import { notes } from "./fakeData/fakeNotes.js";
+import { router as apiRoutes } from "./routes/V1/index.js";
 
 const app = express();
 
