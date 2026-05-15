@@ -2,13 +2,13 @@
 ### Users
 
 ### Read all users
-GET http://localhost:3002/api/users
+GET http://localhost:3002/api/v1/users
 
 ### Read user id
-GET http://localhost:3002/api/users/3
+GET http://localhost:3002/api/v1/users/3
 
 ### Create test a new user
-POST http://localhost:3002/api/users
+POST http://localhost:3002/api/v1/users
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Update user
-PUT http://localhost:3002/api/users/1
+PUT http://localhost:3002/api/v1/users/1
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### delete user
-DELETE http://localhost:3002/api/users/4
+DELETE http://localhost:3002/api/v1/users/4
 Content-Type: application/json
 
 {
@@ -40,13 +40,13 @@ Content-Type: application/json
 ### Products
 
 ### Read all Products
-GET http://localhost:3002/api/products
+GET http://localhost:3002/api/v1/products
 
 ### Read Product id
-GET http://localhost:3002/api/products/3
+GET http://localhost:3002/api/v1/products/3
 
 ### Create test a new Product
-POST http://localhost:3002/api/products
+POST http://localhost:3002/api/v1/products
 Content-Type: application/json
 
 {
@@ -56,7 +56,7 @@ Content-Type: application/json
 }
 
 ### Update Product
-PUT http://localhost:3002/api/products/1
+PUT http://localhost:3002/api/v1/products/1
 Content-Type: application/json
 
 {
@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 
 ### delete Product
-DELETE http://localhost:3002/api/products/4
+DELETE http://localhost:3002/api/v1/products/4
 Content-Type: application/json
 
 {
@@ -78,13 +78,13 @@ Content-Type: application/json
 ### Notes
 
 ### Read all Notes
-GET http://localhost:3002/api/notes
+GET http://localhost:3002/api/v1/notes
 
 ### Read Note id
-GET http://localhost:3002/api/notes/1
+GET http://localhost:3002/api/v1/notes/1
 
 ### Create test a new Note
-POST http://localhost:3002/api/notes
+POST http://localhost:3002/api/v1/notes
 Content-Type: application/json
 
 {
@@ -93,7 +93,7 @@ Content-Type: application/json
 }
 
 ### Update Note
-PUT http://localhost:3002/api/notes/1
+PUT http://localhost:3002/api/v1/notes/1
 Content-Type: application/json
 
 {
@@ -102,7 +102,7 @@ Content-Type: application/json
 }
 
 ### delete Note
-DELETE  http://localhost:3002/api/notes/3
+DELETE  http://localhost:3002/api/v1/notes/3
 Content-Type: application/json
 
 {

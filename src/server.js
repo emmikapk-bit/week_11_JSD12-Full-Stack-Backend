@@ -1,10 +1,10 @@
 import express from "express";
 import cors from "cors";
-//Users
 import { users } from "./fakeData/fakeUsers.js";
 import { products } from "./fakeData/fakeProducts.js";
 import { notes } from "./fakeData/fakeNotes.js";
-import { router as apiRoutes } from "./routes/V1/index.js";
+import { router as apiRoutes } from "./routes/index.js";
+import { connectDB } from "./config/mongodb.js";
 
 const app = express();
 
@@ -48,6 +48,8 @@ app.get("/", (req, res) => {
 app.use("/api", apiRoutes);
 
 const port = 3002;
+
+await connectDB();
 
 app.listen(port, () => {
   console.log(`Server running on port ${port} 🌍`);
