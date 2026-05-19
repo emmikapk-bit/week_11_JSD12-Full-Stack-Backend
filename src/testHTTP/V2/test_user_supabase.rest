@@ -1,0 +1,36 @@
+# Supabase / PostgreSQL - Users API (v2)
+# route หลักคือ /api/v2/users/pg
+#
+# id ของ Supabase มักเป็น UUID
+# ให้ยิง POST ก่อน แล้วคัดลอก id จริงมาแทนค่าด้านล่าง
+#
+# @id = paste-a-real-uuid-here
+
+### Supabase: อ่านผู้ใช้ทั้งหมด
+GET http://localhost:3002/api/v2/users/pg
+
+### Supabase: สร้างผู้ใช้ใหม่
+POST http://localhost:3002/api/v2/users/pg
+Content-Type: application/json
+
+{
+    "username": "Jone doe",
+    "role": "admin",
+    "email": "jone_doe@example.com",
+    "password": "password123"
+}
+
+### Supabase: แก้ไขผู้ใช้ตาม id
+# เปลี่ยน UUID ให้เป็น id จริงจาก response ของ POST
+PUT http://localhost:3002/api/v2/users/pg/5a036cd6-d37a-406a-96b9-faeaa77b0736
+Content-Type: application/json
+
+{
+    "username": "Charlie Updated",
+    "role": "user",
+    "email": "jone_updated@example.com"
+}
+
+### Supabase: ลบผู้ใช้ตาม id
+# เปลี่ยน UUID ให้เป็น id จริงจาก response ของ POST
+DELETE http://localhost:3002/api/v2/users/pg/5a036cd6-d37a-406a-96b9-faeaa77b0736

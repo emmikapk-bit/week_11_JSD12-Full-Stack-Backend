@@ -5,6 +5,7 @@ import { products } from "./fakeData/fakeProducts.js";
 import { notes } from "./fakeData/fakeNotes.js";
 import { router as apiRoutes } from "./routes/index.js";
 import { connectDB } from "./config/mongodb.js";
+import { connectSupabase } from "./config/supabase.js";
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use("/api", apiRoutes);
 const port = 3002;
 
 await connectDB();
+await connectSupabase();
 
 app.listen(port, () => {
   console.log(`Server running on port ${port} 🌍`);

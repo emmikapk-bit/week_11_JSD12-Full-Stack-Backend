@@ -1,0 +1,34 @@
+# MongoDB - Users API (v2)
+# route หลักคือ /api/v2/users
+#
+# วิธีใช้:
+# 1) ยิง POST ก่อนเพื่อสร้างข้อมูลใหม่
+# 2) คัดลอก `_id` ที่ได้จาก response
+# 3) นำ `_id` ไปแทนค่าใน PUT และ DELETE ด้านล่าง
+
+### MongoDB: อ่านผู้ใช้ทั้งหมด
+GET http://localhost:3002/api/v2/users
+
+### MongoDB: สร้างผู้ใช้ใหม่
+POST http://localhost:3002/api/v2/users
+Content-Type: application/json
+
+{
+  "username": "Mina",
+  "email": "mina@example.com",
+  "password": "mina12345",
+  "role": "user"
+}
+
+### MongoDB: แก้ไขผู้ใช้ตาม id
+PUT http://localhost:3002/api/v2/users/PUT_MONGO_OBJECT_ID_HERE
+Content-Type: application/json
+
+{
+  "username": "Mina Updated",
+  "email": "mina.updated@example.com",
+  "role": "admin"
+}
+
+### MongoDB: ลบผู้ใช้ตาม id
+DELETE http://localhost:3002/api/v2/users/DELETE_MONGO_OBJECT_ID_HERE
